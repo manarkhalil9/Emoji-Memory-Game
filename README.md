@@ -87,4 +87,5 @@ Level 3 => 20 cards (10 pairs), 40s timer
 
 wireframe :
 
+<img width="1024" height="1536" alt="memory game wireframe" src="https://github.com/user-attachments/assets/9767de42-8d84-47da-8629-bbe576f9b6ca" />
 
