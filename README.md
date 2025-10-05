@@ -31,7 +31,7 @@ i will start with 2 HTML, one for the index while the other for the game. style.
 
 index.html
 
-Game title A start game button that navigates to game.html
+Game title,  levels game buttons that navigates to game.html
 
 game.html
 
@@ -52,5 +52,4 @@ Level 2 => 12 cards (6 pairs), 50s timer
 
 Level 3 => 20 cards (10 pairs), 40s timer
 
-wireframe :
 
