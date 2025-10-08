@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -84,3 +85,42 @@ h1 {
  }
 
 
+=======
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: #e5dce7;
+    margin-bottom: 20px;
+}
+
+.game-stats div {
+font-size: 18px;
+font-weight: bold;
+}
+
+#restart {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #c9abc6;
+    cursor: pointer;
+    font-size: 16px;
+}
+#restart:hover {
+background: #af70a9;
+box-shadow: 0 0 0 20px rgba();
+}
+
+.card-front {
+  transform: rotateY(180deg)
+}
+.card.flipped .card-front {
+  transform: rotateY(0deg)
+}
+.card.flipped .card-back {
+  transform: rotateY(180deg)
+}
+>>>>>>> 5daa096d967359f327235a145ec01b5835e3509b
