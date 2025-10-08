@@ -61,14 +61,13 @@ Start button (startBtn) => navigates to game.html
 
 game.html
 
-<div> for countdown timer
-<div class="board" id="cardBoard"> for the cards
+div for countdown timer
+div class="board" id="cardBoard" for the cards
   
 Each card:
-<div class="card">
-  <div class="front">?</div>
-  <div class="back">🐶</div>
-</div>
+div class="card"
+  div class="front" ?
+  div class="back"🐶
 
 Restart button (restartBtn)
 
