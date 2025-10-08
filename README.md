@@ -1,55 +1,87 @@
-Emoji-Memory-Game
-Description:
+Cards Match
 
-This is a browser-based memory game that uses emoji cards. The player must flip two cards at a time to find matching pairs. The game will include three levels of difficulty, with each level increasing in challenge by having more cards and more complex arrangements.
+🎮 Description:
 
-Additional features will include:
+This is a browser-based memory card game using emoji cards.
+The player flips two cards at a time to find matching pairs.
+The game has a 1-minute countdown timer.
+When all pairs are matched or the timer reaches 0, the game ends and shows a completion message.
+Players can restart the game anytime using the restart button.
 
-A move counter to track the number of attempts. A timer for each level to add a time-based challenge. Feedback when a pair is correctly matched or mismatched. A final score based on completed matches, moves, and time.
+Benefits:
 
-This game will help players improve memory and concentration while being interactive and visually appealing.
+Improves memory and concentration.
+Fun, interactive, and visually appealing.
 
-Pseudo-code :
+📝 Pseudo-code:
 
-Start Game Show the game board, moves counter, and timer for the level.
+Start Game
+Show game board with 16 cards (8 pairs).
+Show countdown timer (60s).
+Prepare Cards
+Create an array of 8 unique emojis.
+Duplicate to make pairs (16 cards total).
+Shuffle cards randomly.
+Render cards face down on the board.
 
-Prepare Cards Create an array of emojis, duplicate for pairs, shuffle, and display face down.
+If Player Clicks a Card
+Flip the card if it’s not already flipped or matched.
+Add the card to a flipped cards list.
+Check Two Flipped Cards
 
-Player Clicks a Card Flip the card if it’s not already flipped/matched and add to flipped cards list.
+If two cards are flipped:
+Check if they match.
+If match => mark as matched.
+If no match => flip back after a short delay.
+Reset flipped cards list.
 
-Check Two Flipped Cards If two cards are flipped, increase moves, check for match, mark matched or flip back, then reset flipped cards list.
+Check End of Game
+If all pairs are matched or timer reaches 0:
+Stop the timer.
+Show completion message with time remaining (or zero).
 
-Check End of Level If all pairs matched, stop timer, show completion message, and calculate score.
+Timer
+Start 60s countdown.
+Decrease by 1 every second.
+Update timer display on page.
+If timer reaches 0 => end game.
 
-Timer Count down each second; if time runs out, end level and show score with option to restart.
+Restart Button
+Reset timer to 60s.
+Flip all cards back face down.
+Shuffle cards again.
+Start the countdown again.
 
-Restart Button Reset moves, timer, matched pairs, shuffle cards, and start level from beginning.
-
-How to Get Started:
-
-i will start with 2 HTML, one for the index while the other for the game. style.CSS for styling cards\board. level1.js, level2.js, level3.js => game logic per level
+⚡ How to Get Started :
 
 index.html
 
-Game title,  levels game buttons that navigates to game.html
+Game title
+Start button (startBtn) => navigates to game.html
 
 game.html
 
-A container for the cards like:
+<div> for countdown timer
+<div class="board" id="cardBoard"> for the cards
+  
+Each card:
+<div class="card">
+  <div class="front">?</div>
+  <div class="back">🐶</div>
+</div>
 
-<\div> A display for the move counter (e.g
-<\div>) A display for the timer (e.g
-<\div>) A restart button to reset the current level
+Restart button (restartBtn)
+
 style.css
 
-.board => grid display for cards .card => front (emoji) and back (?) .flipped => class for showing emoji simple animations for flip
+.board => grid layout for cards
+.card => size, perspective
+.front & .back => backface visibility
+.flipped => flip animation
 
 script.js
 
-Level 1 => 8 cards (4 pairs), 60s timer
-
-Level 2 => 12 cards (6 pairs), 50s timer
-
-Level 3 => 20 cards (10 pairs), 40s timer
-
-
+Initialize cards and timer
+Shuffle cards
+Add event listeners and HandleClick card flip, match & win check, timer countdown
+HandleClick restart button
