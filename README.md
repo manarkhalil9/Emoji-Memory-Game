@@ -42,5 +42,5 @@ style.css
 
 script.js
 
-Initialize cards and timer Shuffle cards Add event listeners and HandleClick card flip, match & win check, timer countdown HandleClick restart button
+Initialize cards and timer, Shuffle cards, Add event listeners and HandleClick card flip, match & win check, timer countdown HandleClick restart button
 
