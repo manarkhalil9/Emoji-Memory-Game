@@ -15,6 +15,7 @@ const messageEl = document.querySelector('#message')
 const timerEl = document.querySelector('#timer')
 
 //functions
+
 //prepare board
 const init = () => {
 emojis = ["🌹", "🌷", "🌻", "🪻", "🌸", "🌺","🌼","🪷"]
@@ -92,20 +93,34 @@ const resetFlippedCards = () => {
     lockBoard = false // open board to continue 
 }
 
+//set timer
+const startTimer = () => {
+const startTime = 60
+time = startTime
+
+//clear any previous timer 
+if (timer) clearInterval(timer)
+//every second we lose time 
+    timer setInterval(() => {
+        time--
+        if (timerEl) timerEl.textContent = `Timer: ${time}s`
+        //check the loss if time runs out
+        if (time <= 0) {
+            stopTimer()
+            if (matchedCards.length !=== allCards.length) {
+                messageEl.textContent = `😢 You Lose! Time is Up` //shows loss message
+            }
+        }
+    }, 1000);
+}
+
+//stop timer when win or loss 
+const stopTimer = () => {
+    clearInterval(timer)
+}
+
+
 // /*-------------------------------- Functions --------------------------------*/
-// const startTimer = () => {
-//     time = 0
-//     //clear any previous count
-//     if (timer) clearInterval(timer)
-//      //increase time every sec
-//         timer = setInterval(() => {
-//     time++
-//     if (timerEl) timerEl.textContent = `timer: ${time}s`
-//     }, 1000)
-// }
-// const stopTimer = () => {
-//     clearInterval(timer)
-// }
 
 // const checkForWin = () => {
 //     if (matchedCards.length === allCards.length) {
