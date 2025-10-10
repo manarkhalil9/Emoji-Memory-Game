@@ -119,15 +119,19 @@ const stopTimer = () => {
     clearInterval(timer)
 }
 
+//check for win 
+const checkForWin = () => {
+    if (matchedCards.length === allCards.length) {
+        stopTimer() //stop timer if all cards match
 
-// /*-------------------------------- Functions --------------------------------*/
-
-// const checkForWin = () => {
-//     if (matchedCards.length === allCards.length) {
-//         stopTimer()
-//         messageEl.textContent = `🎉 You Win! Time: ${time}s`
-//     }
-// }
+        if (time > 0) {
+            messageEl.textContent = messageEl.textContent = `🎉 You Win! Time: ${time}s`
+        } //if player match all cards befor time ends up show win message
+        else {
+            messageEl.textContent = `😢 You Lose! Time is Up`
+        } //if not show loss message
+    }
+}
 // /*----------------------------- Event Listeners -----------------------------*/
 // if (allCards.length > 0) {
 //  init()
