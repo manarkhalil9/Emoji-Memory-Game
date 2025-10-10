@@ -26,10 +26,40 @@ lockBoard = false
 }
 init()
 
-// //flip cards
-// const handleClick = () => {
-    
-// }
+//flip cards when clicked
+const handleClick = (card, index) => {
+    if (lockBoard) {
+        return //prevents player to flip new cards during chick 
+    }
+
+    if (card.classlist.contains('flipped') || matchedCards.includes(card)) {
+        return //stops rest of the code if one of the conditions true
+    }
+
+//flip card
+card.classlist.add('flipped') //shows the card to the player
+card.querySelector('.back').textContent = cardIdx[index] //link card to correct symbol
+flippedCards.push(card) //saves card temporary to combare later
+
+//check for match, if the player clicks two cards lock the board and check for match
+if (flippedCards.length === 2) {
+    lockBoard = true
+    checkForMatch()
+}
+}
+
+//restore cards to original position if start or reset game 
+if (allCards && allCards.length > 0) //make sure all cards are exists & > 0
+    {
+    allCards.forEach(card => {
+    card.classList.remove('flipped', 'matched') //remove flipped & matched cards
+
+    //disappear emojis and game starts over
+    const back = card.querySelector('.back')
+    if (back) back.textContent = ''
+    })
+    messageEl.textContent = 'Start Matching!'
+}
 
 // /*-------------------------------- Functions --------------------------------*/
 // const startTimer = () => {
@@ -44,51 +74,6 @@ init()
 // }
 // const stopTimer = () => {
 //     clearInterval(timer)
-// }
-
-// // prepare and reset
-// const init = () => {
-//  emojis = ["🌹", "🌷", "🌻", "🪻", "🌸", "🌺","🌼","🪷"]
-// cardIdx = [...emojis, ...emojis] //dublicate cardIdx
-// cardIdx.sort(() => Math.random() - 0.5) //shuffle cards
-// flippedCards = []
-// matchedCards = []
-// lockBoard = false
-
-// //restore cards to original position
-// if (allCards && allCards.length > 0) {
-//     allCards.forEach(card => {
-//     card.classList.remove('flipped', 'matched')
-//     const back = card.querySelector('.back')
-//     if (back) back.textContent = ''
-// })
-// }
-
-// messageEl.textContent = 'Start Matching!'
-// }
-
-// //filp card when click
-// const handleClick = (card, index) => {
-//     if (lockBoard) {
-//         return
-//     }
-//     else if (card.classList.contains('flipped')) {
-
-//     }
-//     else if (matchedCards.includes(card)) {
- 
-//     }
-//     else {
-//         //flip the card
-//         card.classList.add('flipped')
-//         card.querySelector('.back').textContent = cardIdx[index]
-//         flippedCards.push(card)
-//         //check for match
-//         if (flippedCards.length === 2) {
-//             lockBoard = true
-//             checkForMatch()
-//         }
-//     }
 // }
 
 // const checkForMatch = () => {
