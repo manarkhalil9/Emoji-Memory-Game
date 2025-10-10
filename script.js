@@ -24,7 +24,6 @@ flippedCards = []
 matchedCards = []
 lockBoard = false
 }
-init()
 
 //flip cards when clicked
 const handleClick = (card, index) => {
@@ -61,6 +60,38 @@ if (allCards && allCards.length > 0) //make sure all cards are exists & > 0
     messageEl.textContent = 'Start Matching!'
 }
 
+//check for match
+const checkForMatch = () => {
+const [firstCard, secondCard] = flippedCards //bring flipped cards 
+//find the location of cards in the allCards
+const firstIdx = [...allCards].indexOf(firstCard) //indexOf used to know card index in array 
+const secondIdx = [...allCards].indexOf(secondCard)
+//if first & second card match push them in matchedCards 
+if (cardIdx[firstIdx] === cardIdx[secondIdx]) {
+matchedCards.push(firstCard, secondCard)
+resetFlippedCards()
+checkForWin()
+}
+else {
+    //if cards not match setTimeOut 
+    setTimeOut(() => {
+        //returned card to its back side
+        firstCard.classList.remove('flipped') 
+        secondCard.classList.remove('flipped')
+        //clear back content
+        firstCard.querySelector('.back').textContent = ''  
+        secondCard.querySelector('.back').textContent =''
+        resetFlippedCards()
+    },1000)
+}
+}
+
+//resets settings of flipped cards to their normal state
+const resetFlippedCards = () => {
+    flippedCards = []
+    lockBoard = false // open board to continue 
+}
+
 // /*-------------------------------- Functions --------------------------------*/
 // const startTimer = () => {
 //     time = 0
@@ -74,32 +105,6 @@ if (allCards && allCards.length > 0) //make sure all cards are exists & > 0
 // }
 // const stopTimer = () => {
 //     clearInterval(timer)
-// }
-
-// const checkForMatch = () => {
-//    const [firstCard, secondCard] = flippedCards
-//    const firstIdx = [...allCards].indexOf(firstCard) 
-//    const secondIdx = [...allCards].indexOf(secondCard) 
-
-//    if (cardIdx[firstIdx] === cardIdx[secondIdx]) {
-//     matchedCards.push(firstCard, secondCard)
-//     resetFlippedCards()
-//     checkForWin()
-//    }
-//    else {
-//     setTimeout(() => {
-//         firstCard.classList.remove('flipped')
-//         secondCard.classList.remove('flipped')
-//         firstCard.querySelector('.back').textContent = ''
-//         secondCard.querySelector('.back').textContent = ''
-//         resetFlippedCards()
-//     }, 1000)
-//    }
-// } 
-
-// const resetFlippedCards = () => {
-//     flippedCards = []
-//     lockBoard = false
 // }
 
 // const checkForWin = () => {
