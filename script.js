@@ -1,4 +1,5 @@
 //variables 
+
 let cards //store shuffled cards
 let flippedCards //track currently flipped cards
 let matchedCards //store matched cards
@@ -8,6 +9,7 @@ let time //set limits
 let emojis //store emoji array
 
 //cached elemnts
+
 const startBtn = document.querySelector('#startBtn')
 const resetBtn = document.querySelector('#reset')
 const allCards = document.querySelectorAll('.card')
@@ -19,7 +21,7 @@ const timerEl = document.querySelector('#timer')
 //prepare board
 const init = () => {
 emojis = ["🌹", "🌷", "🌻", "🪻", "🌸", "🌺","🌼","🪷"]
-const cardIdx = [...emojis, ...emojis] //dublicate emojis
+cardIdx = [...emojis, ...emojis] //dublicate emojis
 cardIdx.sort(() => Math.random() - 0.5) //shuffle cards
 flippedCards = []
 matchedCards = []
@@ -32,12 +34,12 @@ const handleClick = (card, index) => {
         return //prevents player to flip new cards during chick 
     }
 
-    if (card.classlist.contains('flipped') || matchedCards.includes(card)) {
+    if (card.classList.contains('flipped') || matchedCards.includes(card)) {
         return //stops rest of the code if one of the conditions true
     }
 
 //flip card
-card.classlist.add('flipped') //shows the card to the player
+card.classList.add('flipped') //shows the card to the player
 card.querySelector('.back').textContent = cardIdx[index] //link card to correct symbol
 flippedCards.push(card) //saves card temporary to combare later
 
@@ -75,7 +77,7 @@ checkForWin()
 }
 else {
     //if cards not match setTimeOut 
-    setTimeOut(() => {
+    setTimeout(() => {
         //returned card to its back side
         firstCard.classList.remove('flipped') 
         secondCard.classList.remove('flipped')
@@ -101,13 +103,13 @@ time = startTime
 //clear any previous timer 
 if (timer) clearInterval(timer)
 //every second we lose time 
-    timer setInterval(() => {
+    timer = setInterval(() => {
         time--
         if (timerEl) timerEl.textContent = `Timer: ${time}s`
         //check the loss if time runs out
         if (time <= 0) {
             stopTimer()
-            if (matchedCards.length !=== allCards.length) {
+            if (matchedCards.length !== allCards.length) {
                 messageEl.textContent = `😢 You Lose! Time is Up` //shows loss message
             }
         }
@@ -132,25 +134,29 @@ const checkForWin = () => {
         } //if not show loss message
     }
 }
-// /*----------------------------- Event Listeners -----------------------------*/
-// if (allCards.length > 0) {
-//  init()
-//  startTimer()
-// }
-// allCards.forEach((card, index) => {
-//     card.addEventListener('click', () => handleClick(card, index))
-// })
- 
- 
-// if (resetBtn) {
-// resetBtn.addEventListener('click', () => {
-//     init()
-//     startTimer()
-// })
-// }
 
-// if (startBtn) {
-// startBtn.addEventListener('click', () => {
-//     window.location.href = 'game.html'
-// }) 
-// }
+//event listeners 
+
+//if there is cards in the page, 'if the condition true prepare the game and start timer
+if (allCards.length > 0) {
+    init()
+    startTimer()
+}
+//start game
+if (startBtn) {
+startBtn.addEventListener('click', () => {
+    window.location.href = 'game.html' //opens the game page
+}) 
+} 
+//whan player clicks on resetBtn reshuffle cards and restart timer
+if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+        init()
+        startTimer()
+    })
+ }
+ //when cards is clicked, the handleClick function is called 
+allCards.forEach((card, index) => {
+card.addEventListener('click', () => handleClick(card, index))
+})
+
