@@ -1,5 +1,5 @@
 body {
-  font-family: "Quicksand", "Poppins", Arial, sans-serif;
+  font-family: "Quicksand", "Poppins", sans-serif;
   text-align: center;
   background: linear-gradient(135deg, #ffe4f2, #ffd6e8);
   color: #b84d7a;
@@ -9,21 +9,21 @@ body {
 
 h1 {
   margin-top: 30px;
-  font-size: 65px;
+  font-size: 70px;
   font-weight: 800;
-  color: #e75480;
-  text-shadow: 2px 2px #ffd6e3;
+  color: #ff4f91;
+  text-shadow: 3px 3px #ffc0dc;
 }
 
 button {
   background: linear-gradient(135deg, #ff9ecb, #ff6fa5);
   color: white;
   border: none;
-  padding: 12px 30px;
-  margin: 10px;
+  padding: 14px 35px;
+  margin: 20px;
   border-radius: 15px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
   box-shadow: 0 6px 14px rgba(255, 111, 165, 0.3);
@@ -95,11 +95,11 @@ button:hover {
 }
 
 #message {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-  color: #d63384;
+  color: #e75480;
   background-color: #ffe6f0;
-  padding: 12px 25px;
+  padding: 14px 30px;
   border-radius: 12px;
   display: inline-block;
   margin-top: 20px;
@@ -107,11 +107,11 @@ button:hover {
 }
 
 #timer {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  color: #ff4f91;
+  color: #ff1f7a;
   background: #ffeaf5;
-  padding: 10px 20px;
+  padding: 15px 25px;
   border-radius: 10px;
   display: inline-block;
   margin-bottom: 15px;
