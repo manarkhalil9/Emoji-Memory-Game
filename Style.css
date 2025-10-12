@@ -1,51 +1,63 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Quicksand", "Poppins", Arial, sans-serif;
   text-align: center;
-  background-color: #fde8fa;
-  color: #cb7070;
+  background: linear-gradient(135deg, #ffe4f2, #ffd6e8);
+  color: #b84d7a;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
-  margin-top: 20px;
-  font-size: 70px;
-  font-family: sans-serif;
-  
+  margin-top: 30px;
+  font-size: 65px;
+  font-weight: 800;
+  color: #e75480;
+  text-shadow: 2px 2px #ffd6e3;
 }
 
-#restartBtn {
-  background: #6c5ce7;
+button {
+  background: linear-gradient(135deg, #ff9ecb, #ff6fa5);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 30px;
   margin: 10px;
-  border-radius: 8px;
+  border-radius: 15px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 14px rgba(255, 111, 165, 0.3);
+  transition: all 0.3s ease;
 }
 
-#restartBtn:hover {
-  background: #341f97;
+button:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(135deg, #ff6fa5, #ff9ecb);
+  box-shadow: 0 8px 20px rgba(255, 111, 165, 0.4);
 }
 
 .card-board {
   display: grid;
-  grid-template-columns: repeat(4,100px);
+  grid-template-columns: repeat(4, 120px);
   justify-content: center;
-  row-gap: 50px;
-  column-gap: 100px;
-  margin: 40px auto;
+  row-gap: 40px;
+  column-gap: 60px;
+  margin: 50px auto;
 }
 
 .card {
-  width: 150px;
-  height: 200px;
+  width: 120px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
-  transition: transform 0.3s;
   position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card .front,
@@ -53,7 +65,7 @@ h1 {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
   backface-visibility: hidden;
   display: flex;
   align-items: center;
@@ -62,21 +74,80 @@ h1 {
   transition: transform 0.3s;
 }
 
-.card .front { 
-    background: #f6fb94;
- }
+.card .front {
+  background: linear-gradient(135deg, #ffb6c1, #ff8bb2);
+  border: 3px solid #ff6fa5;
+  color: white;
+}
 
 .card .back {
-     background: #fcf4f8;
-      transform: rotateY(180deg);
-     }
+  background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+  border: 3px solid #ffb6c1;
+  transform: rotateY(180deg);
+}
 
 .card.flipped .front {
-    transform: rotateY(180deg);
- }
+  transform: rotateY(180deg);
+}
 
-.card.flipped .back { 
-    transform: rotateY(0deg);
- }
+.card.flipped .back {
+  transform: rotateY(0deg);
+}
 
+#message {
+  font-size: 22px;
+  font-weight: bold;
+  color: #d63384;
+  background-color: #ffe6f0;
+  padding: 12px 25px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(214,51,132,0.2);
+}
 
+#timer {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4f91;
+  background: #ffeaf5;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(255,79,145,0.2);
+}
+
+/* القلوب مخفية في البداية */
+.hearts {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 40px;
+  opacity: 0;
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+/* لما نضيف كلاس show تظهر القلوب بحركة لطيفة */
+.hearts.show {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 1;
+}
+
+/* حركة القلوب للأعلى */
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0;
+  }
+}
+.hearts span {
+  display: inline-block;
+  animation: floatHearts 1.5s ease forwards;
+}

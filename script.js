@@ -26,6 +26,19 @@ cardIdx.sort(() => Math.random() - 0.5) //shuffle cards
 flippedCards = []
 matchedCards = []
 lockBoard = false
+
+//restore cards to original position if start or reset game 
+if (allCards && allCards.length > 0) //make sure all cards are exists & > 0
+    {
+    allCards.forEach(card => {
+    card.classList.remove('flipped', 'matched') //remove flipped & matched cards
+
+    //disappear emojis and game starts over
+    const back = card.querySelector('.back')
+    if (back) back.textContent = ''
+    })
+}
+ messageEl.textContent = 'Start Matching!'
 }
 
 //flip cards when clicked
@@ -48,19 +61,6 @@ if (flippedCards.length === 2) {
     lockBoard = true
     checkForMatch()
 }
-}
-
-//restore cards to original position if start or reset game 
-if (allCards && allCards.length > 0) //make sure all cards are exists & > 0
-    {
-    allCards.forEach(card => {
-    card.classList.remove('flipped', 'matched') //remove flipped & matched cards
-
-    //disappear emojis and game starts over
-    const back = card.querySelector('.back')
-    if (back) back.textContent = ''
-    })
-    messageEl.textContent = 'Start Matching!'
 }
 
 //check for match
@@ -142,12 +142,6 @@ if (allCards.length > 0) {
     init()
     startTimer()
 }
-//start game
-if (startBtn) {
-startBtn.addEventListener('click', () => {
-    window.location.href = 'game.html' //opens the game page
-}) 
-} 
 //whan player clicks on resetBtn reshuffle cards and restart timer
 if (resetBtn) {
     resetBtn.addEventListener('click', () => {
@@ -159,4 +153,3 @@ if (resetBtn) {
 allCards.forEach((card, index) => {
 card.addEventListener('click', () => handleClick(card, index))
 })
-
