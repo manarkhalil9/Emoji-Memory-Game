@@ -117,37 +117,3 @@ button:hover {
   margin-bottom: 15px;
   box-shadow: 0 4px 10px rgba(255,79,145,0.2);
 }
-
-/* القلوب مخفية في البداية */
-.hearts {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  font-size: 40px;
-  opacity: 0;
-  transition: all 0.8s ease;
-  pointer-events: none;
-}
-
-/* لما نضيف كلاس show تظهر القلوب بحركة لطيفة */
-.hearts.show {
-  transform: translate(-50%, -50%) scale(1.5);
-  opacity: 1;
-}
-
-/* حركة القلوب للأعلى */
-@keyframes floatHearts {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) scale(1.2);
-    opacity: 0;
-  }
-}
-.hearts span {
-  display: inline-block;
-  animation: floatHearts 1.5s ease forwards;
-}
