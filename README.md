@@ -73,13 +73,6 @@ script.js
 Initialize cards, buttos and timer, Shuffle cards, Add event listeners and HandleClick card flip, match & win check, timer countdown HandleClick reset button
 
 wireFrame : 
-
-
-
-Game link :
-https://emojimemorycardsgame.surge.sh/game.html
-
-wireFrame : 
 ![cards match game wireframe](wireframe.jpeg)
 
 game link :
