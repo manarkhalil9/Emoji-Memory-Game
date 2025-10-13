@@ -142,6 +142,7 @@ if (allCards.length > 0) {
     init()
     startTimer()
 }
+
 //whan player clicks on resetBtn reshuffle cards and restart timer
 if (resetBtn) {
     resetBtn.addEventListener('click', () => {
