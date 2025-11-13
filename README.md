@@ -76,4 +76,4 @@ wireFrame :
 ![cards match game wireframe](wireframe.jpeg)
 
 game link :
-https://emojimemorycardsgame.surge.sh/game.html
+https://emojimemorycardsgame.surge.sh
