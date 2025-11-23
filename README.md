@@ -1,79 +1,56 @@
 Cards Match
 
-🎮 Description:
+🎮 “Test your memory, match the emojis!”
+A fun, interactive browser-based memory card game where players flip cards to find matching emoji pairs under a countdown timer.
 
-This is a browser-based memory card game using emoji cards.
-The player flips two cards at a time to find matching pairs. 
-The game has a 1 minute countdown timer.
-When all pairs are matched or the timer reaches 0, the game ends and shows a completion message.
-Players can restart the game anytime using the reset button.
+Status
 
-Benefits:
+✨ Overview
+Cards Match challenges players to find all matching emoji pairs in 1 minute. Each game session presents a shuffled board of 16 cards (8 pairs), testing memory and concentration skills. Users can restart anytime and try to improve their speed and accuracy.
 
-Improves memory and concentration. 
-Fun, interactive, and visually appealing.
+🌐 Live Deployment
+👉 Play Cards Match Live: https://emojimemorycardsgame.surge.sh
 
-📝 Pseudo-code:
+🖼️ Preview
 
-Start Game Show game board with 16 cards (8 pairs).
-Show countdown timer (60s).
-Prepare Cards by Creatinge an array of 8 unique emojis.
-Duplicate to make pairs (16 cards total).
-Shuffle cards randomly.
-Render cards face down on the board.
+Game Board – Flip and match emoji cards
 
-If Player Clicks a Card Flip the card if it’s not already flipped or matched.
-Add the card to a flipped cards list.
-Check Two Flipped Cards
+Countdown Timer – Track your progress in real-time
 
-If two cards are flipped: Check if they match.
-If match => mark as matched.
-If no match => flip back after a short delay.
-Reset flipped cards list.
+Reset Button – Start a new game instantly
 
-Check End of Game If all pairs are matched or timer reaches 0: Stop the timer.
-Show completion message with time remaining (or zero).
-
-Timer Start 60s countdown.
-Decrease by 1 every second.
-Update timer display on page.
-If timer reaches 0 => end game.
-
-Restart Button Reset timer to 60s.
-Flip all cards back face down.
-Shuffle cards again.
-Start the countdown again.
-
-⚡ How to Get Started :
-
-index.html
-
-Game title Start button (startBtn) => navigates to game.html
-
-game.html
-
-div for countdown timer
-div class="card-board" for the cards
-
-Each card: div class="card"
-div class="front" ? 
-div class="back"
-
-Reset button (resetBtn)
-
-style.css
-
-.board => grid
-.card => size, perspective .front & 
-.back => backface visibility 
-.flipped => flip animation
-
-script.js
-
-Initialize cards, buttos and timer, Shuffle cards, Add event listeners and HandleClick card flip, match & win check, timer countdown HandleClick reset button
-
-wireFrame : 
+📐 Wireframes
 ![cards match game wireframe](wireframe.jpeg)
 
-game link :
-https://emojimemorycardsgame.surge.sh
+🌟 Features
+🎨 Interactive Gameplay
+
+Flip cards to find matching pairs.
+
+Smooth animations and immediate feedback for matched/unmatched pairs.
+
+⏱️ Countdown Timer
+
+60-second timer to challenge speed and memory.
+
+Game ends when all pairs are matched or timer reaches zero.
+
+🔄 Game Restart
+
+Reset button reshuffles the cards and restarts the timer.
+
+Allows endless replayability for practice and fun.
+
+🛠️ Tech Stack
+
+HTML, CSS, JavaScript
+
+🔮 Future Improvements
+
+Multiple difficulty levels (more cards, less time)
+
+Leaderboard to track high scores
+
+Mobile-friendly responsive design
+
+Additional themes or emoji packs
